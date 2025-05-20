@@ -12,3 +12,4 @@ jobs:
           uname -a
           free -m
           cat /etc/lsb-release
+          ls -la
