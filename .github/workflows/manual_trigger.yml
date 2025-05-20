@@ -1,0 +1,14 @@
+name: Manual workflow
+on:
+  workflow_dispatch:
+jobs:
+  echo-hello:
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Echo Hello
+        run: |
+          echo "Hello, world!"
+          pwd
+          uname -a
+          free -m
+          cat /etc/lsb-release
