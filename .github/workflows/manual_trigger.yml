@@ -24,6 +24,7 @@ jobs:
           path: foo.tar.bz2
   try-download:
     runs-on: ubuntu-22.04
+    needs: try-upload
     steps:
       - uses: actions/checkout@v4
       - name: check before download
