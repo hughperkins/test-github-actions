@@ -2,7 +2,7 @@ name: Manual workflow
 on:
   workflow_dispatch:
 jobs:
-  echo-hello:
+  try-upload:
     runs-on: ubuntu-22.04
     steps:
       - uses: actions/checkout@v4
@@ -16,9 +16,25 @@ jobs:
           ls -la
           echo "hello" > foo
           mkdir bar
-          echo "world" > bar/foo
+          echo "world" > bar/foo2
           tar -cjf foo.tar.bz2 foo bar
       - uses: actions/upload-artifact@v4
         with:
           name: foo-artifact
           path: foo.tar.bz2
+  try-download:
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v4
+      - name: check before download
+        run: |
+          echo "Hello, world!"
+          pwd
+          ls
+      - uses: actions/download-artifact@v4
+      - name: check after download
+        run: |
+          echo "Hello, world!"
+          ls
+          tar -cjf foo.tar.bz2
+          ls
