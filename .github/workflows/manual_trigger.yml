@@ -14,3 +14,11 @@ jobs:
           free -m
           cat /etc/lsb-release
           ls -la
+          echo "hello" > foo
+          mkdir bar
+          echo "world" > bar/foo
+          tar -cjf foo.tar.bz2 foo bar
+      - uses: actions/upload-artifact@v4
+        with:
+          name: foo-artifact
+          path: foo.tar.bz2
