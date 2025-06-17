@@ -33,8 +33,6 @@ jobs:
           pwd
           ls
       - uses: actions/download-artifact@v4
-        with:  
-          path: foo.tar.bz2
       - name: check after download
         run: |
           echo "Hello, world!"
