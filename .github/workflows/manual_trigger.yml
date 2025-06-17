@@ -36,5 +36,5 @@ jobs:
         run: |
           echo "Hello, world!"
           ls
-          tar -cjf foo.tar.bz2
+          tar -xjf foo.tar.bz2
           ls
