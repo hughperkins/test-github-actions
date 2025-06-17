@@ -17,6 +17,7 @@ jobs:
       - uses: actions/download-artifact@v4
         with:
           name: foo-artifact
+          github-token: ${{ secrets.GITHUB_TOKEN }}
       - name: check after download
         run: |
           echo "Hello, world!"
