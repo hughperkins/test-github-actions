@@ -37,5 +37,5 @@ jobs:
         run: |
           echo "Hello, world!"
           ls -lR
-          tar -xjf foo.tar.bz2
-          ls
+          tar -xjf foo-artifact/foo.tar.bz2
+          ls -lR
