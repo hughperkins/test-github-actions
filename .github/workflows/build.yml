@@ -1,4 +1,4 @@
-name: Manual workflow
+name: build
 on:
   workflow_dispatch:
 jobs:
@@ -22,20 +22,3 @@ jobs:
         with:
           name: foo-artifact
           path: foo.tar.bz2
-  try-download:
-    runs-on: ubuntu-24.04
-    needs: try-upload
-    steps:
-      - uses: actions/checkout@v4
-      - name: check before download
-        run: |
-          echo "Hello, world!"
-          pwd
-          ls
-      - uses: actions/download-artifact@v4
-      - name: check after download
-        run: |
-          echo "Hello, world!"
-          ls -lR
-          tar -xjf foo-artifact/foo.tar.bz2
-          ls -lR
