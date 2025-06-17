@@ -38,6 +38,6 @@ jobs:
       - name: check after download
         run: |
           echo "Hello, world!"
-          ls
+          ls -lR
           tar -xjf foo.tar.bz2
           ls
