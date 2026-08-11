@@ -1,0 +1,21 @@
+name: virtual-merge-demo
+on: pull_request
+
+jobs:
+  show-checkout:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+
+      - name: Which commit did CI check out?
+        run: |
+          echo "PR head (tip of this branch): ${{ github.event.pull_request.head.sha }}"
+          echo "PR base (tip of main):        ${{ github.event.pull_request.base.sha }}"
+          echo "checked out HEAD:             $(git rev-parse HEAD)"
+          echo
+          git show --no-patch --format='HEAD is %H%n  subject: %s%n  parents: %P' HEAD
+
+      - name: Is main-only.txt here, even though the branch does not have it?
+        run: cat main-only.txt
